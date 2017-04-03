@@ -32,34 +32,38 @@ def main():
     while not rospy.is_shutdown() and control:
         try:
             if frame != None:
-                cv2.imshow('Image',frame)
+                frame_gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+                frame_gray_small = cv2.resize(frame_gray, (320, 240))
+                frame_gray_small_crop = frame_gray_small[120:240,0:320]
+                print frame_gray_small_crop.shape[:2]
+                cv2.imshow('Image',frame_gray_small_crop)
                 cv2.waitKey(1)
                 for e in pygame.event.get():
                     if e.type == pygame.KEYDOWN:
                         key_input = pygame.key.get_pressed()
                         if key_input[pygame.K_KP9]:
                             print 'Forward-Right'
-                            cv2.imwrite('training_images/forward-right/img'+str(counter[0])+'.jpg',frame)
+                            cv2.imwrite('training_images/forward-right/img'+str(counter[0])+'.jpg',frame_gray_small_crop)
                             counter[0]+=1
                             control_pub.publish(FORWARD | RIGHT)
                         elif key_input[pygame.K_KP7]:
                             print 'Forward-Left'
-                            cv2.imwrite('training_images/forward-left/img'+str(counter[1])+'.jpg',frame)
+                            cv2.imwrite('training_images/forward-left/img'+str(counter[1])+'.jpg',frame_gray_small_crop)
                             counter[1]+=1
                             control_pub.publish(FORWARD | LEFT)
                         elif key_input[pygame.K_KP8]:
                             print 'Forward'
-                            cv2.imwrite('training_images/forward/img'+str(counter[2])+'.jpg',frame)
+                            cv2.imwrite('training_images/forward/img'+str(counter[2])+'.jpg',frame_gray_small_crop)
                             counter[2]+=1
                             control_pub.publish(FORWARD)
                         elif key_input[pygame.K_KP4]:
                             print 'Left'
-                            cv2.imwrite('training_images/left/img'+str(counter[3])+'.jpg',frame)
+                            cv2.imwrite('training_images/left/img'+str(counter[3])+'.jpg',frame_gray_small_crop)
                             counter[3]+=1
                             control_pub.publish(LEFT)
                         elif key_input[pygame.K_KP6]:
                             print 'Right'
-                            cv2.imwrite('training_images/right/img'+str(counter[4])+'.jpg',frame)
+                            cv2.imwrite('training_images/right/img'+str(counter[4])+'.jpg',frame_gray_small_crop)
                             counter[4]+=1
                             control_pub.publish(RIGHT)
                         else:
