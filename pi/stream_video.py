@@ -14,11 +14,11 @@ def main():
         try:
             read, frame = cap.read()
             if read == True:
-                img = bridge.cv2_to_imgmsg(frame, "bgr8")
+                img = bridge.cv2_to_imgmsg(frame, 'bgr8')
                 front_pub.publish(img)
         except KeyboardInterrupt:
             break
         rate.sleep()
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

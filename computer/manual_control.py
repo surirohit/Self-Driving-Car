@@ -19,22 +19,22 @@ def main():
                 if e.type == pygame.KEYDOWN or e.type == pygame.KEYUP:
                     key_input = pygame.key.get_pressed()
                     if key_input[pygame.K_UP] and key_input[pygame.K_RIGHT]:
-                        print "Forward-Right"
+                        print 'Forward-Right'
                         control_pub.publish(FORWARD | RIGHT)
                     elif key_input[pygame.K_UP] and key_input[pygame.K_LEFT]:
-                        print "Forward-Left"
+                        print 'Forward-Left'
                         control_pub.publish(FORWARD | LEFT)
                     elif key_input[pygame.K_UP]:
-                        print "Forward"
+                        print 'Forward'
                         control_pub.publish(FORWARD)
                     elif key_input[pygame.K_LEFT]:
-                        print "Left"
+                        print 'Left'
                         control_pub.publish(LEFT)
                     elif key_input[pygame.K_RIGHT]:
-                        print "Right"
+                        print 'Right'
                         control_pub.publish(RIGHT)
                     else:
-                        print "Stop"
+                        print 'Stop'
                         control_pub.publish(STOP)
                 elif e.type == pygame.QUIT:
                     control = False
