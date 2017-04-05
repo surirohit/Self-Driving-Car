@@ -38,6 +38,7 @@ def main():
                     control_pub.publish(FORWARD | LEFT)
                 elif prediction == 4:
                     control_pub.publish(FORWARD | RIGHT)
+		print prediction
         except KeyboardInterrupt:
             break
 

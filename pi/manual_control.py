@@ -13,19 +13,19 @@ def control_callback(msg):
     control_input = msg.data
     if control_input == FORWARD | RIGHT :
         print 'Forward-Right'
-        s.write('O1%L70%R0%')
+        s.write('O1%L100%R80%')
     elif control_input == FORWARD | LEFT :
         print 'Forward-Left'
-        s.write('O1%L0%R70%')
+        s.write('O1%L80%R100%')
     elif control_input == FORWARD :
         print 'Forward'
-        s.write('O1%L70%R70%')
+        s.write('O1%L105%R110%')
     elif control_input == LEFT :
         print 'Left'
-        s.write('O1%L0%R70%')
+        s.write('O1%L20%R70%')
     elif control_input == RIGHT :
         print 'Right'
-        s.write('O1%L70%R0%')
+        s.write('O1%L70%R20%')
     else:
         print 'Stop'
         s.write('O1%L0%R0%')
