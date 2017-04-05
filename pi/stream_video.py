@@ -8,7 +8,7 @@ def main():
     cap = cv2.VideoCapture(0)
     rospy.init_node('stream_video',anonymous=False)
     front_pub = rospy.Publisher('/image_front',Image,queue_size=1)
-    rate = rospy.Rate(30)
+#    rate = rospy.Rate(30)
     bridge = CvBridge()
     while not rospy.is_shutdown():
         try:
@@ -18,7 +18,7 @@ def main():
                 front_pub.publish(img)
         except KeyboardInterrupt:
             break
-        rate.sleep()
+#        rate.sleep()
 
 if __name__ == '__main__':
     main()
