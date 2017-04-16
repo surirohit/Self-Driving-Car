@@ -15,6 +15,15 @@ def controlCallback(msg):
     global control_sig
     control_sig = msg.data
 
+def cascade(msg):
+    frame = None
+    try:
+        frame = bridge.imgmsg_to_cv2(msg, 'mono8')
+    except CvBridgeError as e:
+        print e
+    cv2.imshow("STOP",frame)
+    cv2.waitKey(1)
+
 def storeNextFrame(msg):
     global frame
     try:
@@ -25,6 +34,7 @@ def storeNextFrame(msg):
 def main():
     rospy.init_node('collect_training_data', anonymous=False)
     rospy.Subscriber('/image_front_gray_crop', Image, storeNextFrame)
+    rospy.Subscriber('/image_front', Image, cascade)
     rospy.Subscriber('/control_signal',UInt8,controlCallback)
     while not rospy.is_shutdown():
         try:
