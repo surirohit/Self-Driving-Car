@@ -22,10 +22,10 @@ def control_callback(msg):
         s.write('O1%L105%R110%')
     elif control_input == LEFT :
         print 'Left'
-        s.write('O1%L20%R70%')
+        s.write('O1%L70%R90%')
     elif control_input == RIGHT :
         print 'Right'
-        s.write('O1%L70%R20%')
+        s.write('O1%L90%R70%')
     else:
         print 'Stop'
         s.write('O1%L0%R0%')

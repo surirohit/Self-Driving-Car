@@ -17,7 +17,7 @@ def main():
     bridge = CvBridge()
     model = cv2.ml.ANN_MLP_load('mlp_xml/mlp.xml')
     imgs = []
-    for i in range(100):
+    for i in range(3):
         try:
             read, frame = cap.read()
             imgs.append(frame)
@@ -28,7 +28,7 @@ def main():
             read, frame = cap.read()
             imgs.append(frame)
             frame = imgs[0]
-            imgs.pop[0]
+            imgs.pop(0)
             if read == True:
                 frame_gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
                 frame_gray_small = cv2.resize(frame_gray, (320, 240))
