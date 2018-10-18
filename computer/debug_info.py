@@ -9,6 +9,7 @@ from std_msgs.msg import UInt8
 LEFT, FORWARD, RIGHT, STOP = 4, 2, 1, 0
 frame = None
 control_sig = None
+fullFrame = None
 bridge = CvBridge()
 
 def controlCallback(msg):
@@ -16,13 +17,11 @@ def controlCallback(msg):
     control_sig = msg.data
 
 def cascade(msg):
-    frame = None
+    global fullFrame
     try:
-        frame = bridge.imgmsg_to_cv2(msg, 'mono8')
+        fullFrame = bridge.imgmsg_to_cv2(msg, 'mono8')
     except CvBridgeError as e:
         print e
-    cv2.imshow("STOP",frame)
-    cv2.waitKey(1)
 
 def storeNextFrame(msg):
     global frame
@@ -38,8 +37,9 @@ def main():
     rospy.Subscriber('/control_signal',UInt8,controlCallback)
     while not rospy.is_shutdown():
         try:
-            if frame != None and control_sig!=None:
-                cv2.imshow('Image',frame)
+            if control_sig!=None and fullFrame!=None:
+                #cv2.imshow('Image',frame)
+                cv2.imshow('Stop',fullFrame)
                 cv2.waitKey(1)
                 if control_sig == FORWARD:
                     print "Forward"

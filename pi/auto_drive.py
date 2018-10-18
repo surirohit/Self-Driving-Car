@@ -51,9 +51,9 @@ def main():
                 img = bridge.cv2_to_imgmsg(frame_gray_small_crop, 'mono8')
                 front_pub.publish(img)
                 cascade_obj = stopCascade.detectMultiScale(frame_gray_small,scaleFactor=1.1,minNeighbors=5,minSize=(30, 30),flags=cv2.CASCADE_SCALE_IMAGE)
-        	    for (x_pos, y_pos, width, height) in cascade_obj:
-            		cv2.rectangle(frame_gray_small, (x_pos+5, y_pos+5), (x_pos+width-5, y_pos+height-5), (255, 255, 255), 2)
-            		calculate(y_pos+height-5,22-18,300,frame_gray_small)
+        	for (x_pos, y_pos, width, height) in cascade_obj:
+            	    cv2.rectangle(frame_gray_small, (x_pos+5, y_pos+5), (x_pos+width-5, y_pos+height-5), (255, 255, 255), 2)
+            	    calculate(y_pos+height-5,22-18,300,frame_gray_small)
                 img = bridge.cv2_to_imgmsg(frame_gray_small, 'mono8')
                 front_pub_full.publish(img)
                 if prediction == 0:
