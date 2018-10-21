@@ -41,7 +41,8 @@ Clone an instance of this repository on both your computer as well as the Pi usi
 git clone https://github.com/surirohit/Self-Driving-Car.git
 ```
 
-You will also need to build a lane/arena to test the robot. [This](#results) video shows how I did it. 
+You will also need to build a lane/arena to test the robot. You could build something like the setup below.
+<img src="https://github.com/surirohit/Self-Driving-Car/blob/master/img/arena.png?raw=true" width="640">
 
 <a name="results"></a>
 ## Results
