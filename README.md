@@ -16,7 +16,7 @@ Prequisites - basics of Python, OpenCV, ROS, and Neural Networks. A basic unders
 
 If you're interested in builing a more advanced system, I recommend you to look into [Duckietown](https://www.duckietown.org/).
 
-## Hardware Setup
+## Hardware Requirements
 
 You will need the following hardware to build your own autonomous car.
 
@@ -41,6 +41,9 @@ Clone an instance of this repository on both your computer as well as the Pi usi
 git clone https://github.com/surirohit/Self-Driving-Car.git
 ```
 
+You will also need to build a lane/arena to test the robot. [This](#results) video shows how I did it. 
+
+<a name="results"></a>
 ## Results
 You can find the video of the robot I developed on [YouTube](https://www.youtube.com/watch?v=7OizN14J0tI)
 [![Self Driving Car using ROS Kinetic and Raspberry Pi](https://img.youtube.com/vi/7OizN14J0tI/0.jpg)](https://www.youtube.com/watch?v=7OizN14J0tI)
