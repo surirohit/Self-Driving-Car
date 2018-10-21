@@ -1,9 +1,0 @@
-The control signals have been defined as follows:
-
-|    Left    |  Forward   |   Right   |      Output      |    Binary    |
-|     1      |      1     |     0     |   Forward-Left   |       6      |
-|     0      |      1     |     1     |   Forward-Right  |       3      |
-|     0      |      1     |     0     |     Forward      |       2      |
-|     1      |      0     |     0     |      Left        |       4      |
-|     0      |      0     |     1     |      Right       |       1      |
-|     0      |      0     |     0     |      Stop        |       0      |
