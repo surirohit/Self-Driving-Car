@@ -12,7 +12,7 @@ I did this project a very long time ago when I did not realize the importance of
 
 This project is recommended for you if you want to learn how to use very basic neural networks to program a small car to drive autonomously in structured environments.
 
-Prequisites - basics of Python, OpenCV, ROS, and Neural Networks. A basic understanding of cascade classifiers is also required for the STOP sign detection.
+Prequisites - basics of Neural Networks, OpenCV, Python, ROS, and Raspberry Pi. A basic understanding of cascade classifiers is also required for the STOP sign detection.
 
 If you're interested in builing a more advanced system, I recommend you to look into [Duckietown](https://www.duckietown.org/).
 
@@ -36,13 +36,19 @@ You could do away with the Arduino by directly connecting the motor driver to th
 
 ## Setup
 
-Clone an instance of this repository on both your computer as well as the Pi using the following command:
+1. Install ROS on your computer and the Raspberry Pi. You can also use an image for your Pi which comes preinstalled with ROS. Here's a [video](https://www.youtube.com/watch?v=ghImsclr2sU) which shows how to do that on the Raspberry Pi 3.
+
+2. Ensure that your computer and the Pi are on the same network. You can do this by connecting them both to your home WiFi.
+
+3. Clone an instance of this repository on both your computer as well as the Pi using the following command:
 ```
 git clone https://github.com/surirohit/Self-Driving-Car.git
 ```
 
 You will also need to build a lane/arena to test the robot. You could build something like the setup below.
 <img src="https://github.com/surirohit/Self-Driving-Car/blob/master/img/arena.png?raw=true" width="640">
+
+
 
 <a name="results"></a>
 ## Results
